@@ -1,27 +1,37 @@
 <body>
   <script>
-    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+    
     
     const w = 500;
-    const h = 100;
+    const h = 500;
     
     const svg = d3.select("body")
                   .append("svg")
                   .attr("width", w)
                   .attr("height", h);
     
-    svg.selectAll("rect")
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
        // Add your code below this line
-       d3.select("body").selectAll("div")
-         .data(dataset)
-         .enter()
-         .append("rect")
-       
+       .attr("cx", (d, i) => d[0])
+       .attr("cy", (d, i) => h - d[1])
+       .attr("r", 5);
        
        // Add your code above this line
-       .attr("x", 0)
-       .attr("y", 0)
-       .attr("width", 25)
-       .attr("height", 100);
+  
   </script>
 </body>
